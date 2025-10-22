@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura: El Futuro del Bienestar Personalizado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #F3F4F6;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-item {
+            background-color: #1F2937;
+            border-left: 4px solid #00F0B5;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .flow-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 240, 181, 0.1), 0 4px 6px -2px rgba(0, 240, 181, 0.05);
+        }
+        .arrow {
+            color: #00F0B5;
+            font-size: 2.5rem;
+            line-height: 1;
+            margin: 1rem 0;
+            transform: rotate(90deg);
+        }
+        @media (min-width: 1024px) {
+            .arrow {
+                transform: rotate(0deg);
+                margin: 0 1rem;
+            }
+        }
+        .stat-card {
+            background-color: #1F2937;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#00F0B5] to-[#00B0FF]">Aura</h1>
+            <p class="mt-4 text-xl md:text-2xl text-gray-300">Revolucionando el Bienestar con IA Hiper-Personalizada</p>
+        </header>
+
+        <main>
+            <section id="opportunity" class="my-16">
+                <div class="stat-card">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-200 mb-4">Una Oportunidad de Mercado Sin Precedentes</h2>
+                    <p class="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00F0B5] to-[#00C0FF]">7 Billones €</p>
+                    <p class="mt-4 text-lg text-gray-400">Es el valor estimado del mercado global del bienestar. Europa representa una porción significativa y creciente, impulsada por una demanda de soluciones de salud personalizadas y proactivas. Las soluciones genéricas ya no son suficientes.</p>
+                </div>
+            </section>
+
+            <section id="market-analysis" class="my-16">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Análisis del Mercado Europeo del Bienestar</h2>
+                    <p class="mt-2 text-lg text-gray-400">El consumidor europeo es digitalmente maduro y prioriza la salud, creando un terreno fértil para la innovación.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="bg-[#1F2937] p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Desglose del Gasto en Bienestar</h3>
+                        <p class="text-center text-gray-400 mb-4">La nutrición y el fitness mental dominan el interés del consumidor, indicando una visión holística de la salud.</p>
+                        <div class="chart-container">
+                            <canvas id="marketBreakdownChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-[#1F2937] p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Adopción Digital en Salud (Países Clave)</h3>
+                         <p class="text-center text-gray-400 mb-4">La alta penetración de apps de salud muestra que los usuarios están listos para una plataforma más avanzada e integrada.</p>
+                        <div class="chart-container">
+                            <canvas id="digitalAdoptionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="solution" class="my-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Nuestra Solución: El Ecosistema Aura</h2>
+                    <p class="mt-2 text-lg text-gray-400">Un viaje de usuario fluido, desde la recopilación de datos hasta la optimización continua de su bienestar.</p>
+                </div>
+                <div class="flex flex-col lg:flex-row justify-center items-center gap-4">
+                    <div class="flow-item">
+                        <div class="text-3xl mb-2">1.</div>
+                        <h4 class="text-lg font-bold">Recopilación de Datos Holísticos</h4>
+                        <p class="text-sm text-gray-400">Genética, biomarcadores, estilo de vida y datos en tiempo real (wearables).</p>
+                    </div>
+                    <div class="arrow">&rarr;</div>
+                    <div class="flow-item">
+                         <div class="text-3xl mb-2">2.</div>
+                        <h4 class="text-lg font-bold">Motor de IA Propietario</h4>
+                        <p class="text-sm text-gray-400">Analiza millones de puntos de datos para encontrar correlaciones únicas para ti.</p>
+                    </div>
+                    <div class="arrow">&rarr;</div>
+                    <div class="flow-item">
+                         <div class="text-3xl mb-2">3.</div>
+                        <h4 class="text-lg font-bold">Plan Dinámico y Personalizado</h4>
+                        <p class="text-sm text-gray-400">Nutrición, fitness y bienestar mental que se adaptan a tu progreso y objetivos.</p>
+                    </div>
+                     <div class="arrow">&rarr;</div>
+                    <div class="flow-item">
+                         <div class="text-3xl mb-2">4.</div>
+                        <h4 class="text-lg font-bold">Feedback y Optimización</h4>
+                        <p class="text-sm text-gray-400">El sistema aprende y mejora continuamente a medida que interactúas con él.</p>
+                    </div>
+                </div>
+                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+                    <div class="bg-[#1F2937] p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Pilares del Bienestar Personalizado</h3>
+                        <p class="text-center text-gray-400 mb-4">Aura equilibra todos los aspectos cruciales de la salud para un resultado integral y sostenible.</p>
+                        <div class="chart-container">
+                            <canvas id="pillarsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-[#1F2937] p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Panorama Competitivo</h3>
+                         <p class="text-center text-gray-400 mb-4">Nos posicionamos en un espacio único, superando a las soluciones genéricas en personalización y alcance.</p>
+                        <div class="chart-container">
+                            <canvas id="competitorChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="synergy" class="my-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">La Sinergia Digital-Física</h2>
+                    <p class="mt-2 text-lg text-gray-400">Un modelo de negocio escalable que combina la recurrencia digital con productos y servicios de alto valor.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="bg-[#1F2937] p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Proyección de Crecimiento de Usuarios</h3>
+                        <p class="text-center text-gray-400 mb-4">Esperamos una adopción exponencial gracias al efecto de red y a resultados tangibles para los usuarios.</p>
+                        <div class="chart-container">
+                            <canvas id="userGrowthChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-[#1F2937] p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Evolución de Flujos de Ingresos</h3>
+                         <p class="text-center text-gray-400 mb-4">Diversificación de ingresos desde suscripciones digitales hasta la venta de productos físicos y experiencias premium.</p>
+                        <div class="chart-container">
+                            <canvas id="revenueStreamsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <footer class="text-center mt-20 py-8 border-t border-gray-700">
+                <p class="text-gray-400">Aura: El Futuro del Bienestar es Personal.</p>
+                <p class="text-sm text-gray-500 mt-2">Propuesta de Negocio y Visualización de Datos. 2025.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        const vibrantPalette = ['#00F0B5', '#00E0D2', '#00D0EF', '#00C0FF', '#00B0FF'];
+        const gridColor = 'rgba(255, 255, 255, 0.1)';
+        const textColor = '#F3F4F6';
+        
+        Chart.defaults.color = textColor;
+        Chart.defaults.font.family = "'Inter', sans-serif";
+
+        function wrapLabels(label, maxLength) {
+            if (typeof label !== 'string' || label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            return Array.isArray(label) ? label.join(' ') : label;
+        };
+        
+        const commonOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                     labels: {
+                        color: textColor,
+                        font: { size: 12 }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: '#1F2937',
+                    titleFont: { size: 16, weight: 'bold' },
+                    bodyFont: { size: 12 },
+                    padding: 10,
+                    cornerRadius: 6,
+                    displayColors: true
+                }
+            }
+        };
+
+        const marketBreakdownData = {
+            labels: ['Nutrición y Dieta', 'Fitness Físico y Mental', 'Cuidado Personal y Belleza', 'Medicina Preventiva'],
+            datasets: [{
+                label: 'Gasto en Bienestar (%)',
+                data: [40, 30, 20, 10],
+                backgroundColor: vibrantPalette,
+                borderColor: '#111827',
+                borderWidth: 2,
+                hoverOffset: 4
+            }]
+        };
+        new Chart(document.getElementById('marketBreakdownChart'), {
+            type: 'doughnut',
+            data: marketBreakdownData,
+            options: { ...commonOptions }
+        });
+
+        const digitalAdoptionData = {
+            labels: ['Alemania', 'Reino Unido', 'Francia', 'España', 'Italia'],
+            datasets: [{
+                label: 'Uso de Apps de Salud (%)',
+                data: [55, 62, 58, 65, 53],
+                backgroundColor: vibrantPalette[0],
+                borderColor: vibrantPalette[0],
+                borderWidth: 1,
+                borderRadius: 4
+            }]
+        };
+        new Chart(document.getElementById('digitalAdoptionChart'), {
+            type: 'bar',
+            data: digitalAdoptionData,
+            options: {
+                ...commonOptions,
+                 plugins: { ...commonOptions.plugins, legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, max: 100, grid: { color: gridColor }, ticks: { color: textColor } },
+                    x: { grid: { display: false }, ticks: { color: textColor } }
+                }
+            }
+        });
+        
+        const pillarsData = {
+            labels: ['Nutrición', 'Fitness', 'Sueño', 'Salud Mental', ['Bienestar', 'Social']],
+            datasets: [{
+                label: 'Enfoque Personalizado',
+                data: [90, 85, 80, 95, 75],
+                fill: true,
+                backgroundColor: 'rgba(0, 240, 181, 0.2)',
+                borderColor: '#00F0B5',
+                pointBackgroundColor: '#00F0B5',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#00F0B5'
+            }]
+        };
+        new Chart(document.getElementById('pillarsChart'), {
+            type: 'radar',
+            data: pillarsData,
+            options: {
+                ...commonOptions,
+                plugins: { ...commonOptions.plugins, legend: { display: false } },
+                scales: {
+                    r: {
+                        angleLines: { color: gridColor },
+                        grid: { color: gridColor },
+                        pointLabels: { font: { size: 14 }, color: textColor },
+                        ticks: { backdropColor: 'transparent', color: textColor },
+                        min: 0,
+                        max: 100
+                    }
+                }
+            }
+        });
+        
+        const competitorData = {
+            datasets: [
+                {
+                    label: 'Apps de Fitness Genéricas',
+                    data: [{ x: 2, y: 3, r: 15 }],
+                    backgroundColor: vibrantPalette[4] + 'B3'
+                },
+                {
+                    label: 'Planes de Dieta Online',
+                    data: [{ x: 4, y: 2, r: 12 }],
+                    backgroundColor: vibrantPalette[3] + 'B3'
+                },
+                {
+                    label: 'Wearables (solo datos)',
+                    data: [{ x: 6, y: 5, r: 18 }],
+                    backgroundColor: vibrantPalette[2] + 'B3'
+                },
+                {
+                    label: 'Aura',
+                    data: [{ x: 9, y: 9, r: 25 }],
+                    backgroundColor: vibrantPalette[0] + 'B3'
+                }
+            ]
+        };
+        new Chart(document.getElementById('competitorChart'), {
+            type: 'bubble',
+            data: competitorData,
+            options: {
+                ...commonOptions,
+                plugins: { 
+                     ...commonOptions.plugins,
+                     tooltip: {
+                         callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += `(${context.raw.x}, ${context.raw.y})`;
+                                return label;
+                            }
+                         }
+                     }
+                },
+                scales: {
+                    y: {
+                        title: { display: true, text: 'Alcance (Digital a Físico)', color: textColor },
+                        min: 0, max: 10, grid: { color: gridColor }, ticks: { color: textColor }
+                    },
+                    x: {
+                        title: { display: true, text: 'Nivel de Personalización', color: textColor },
+                        min: 0, max: 10, grid: { color: gridColor }, ticks: { color: textColor }
+                    }
+                }
+            }
+        });
+
+        const userGrowthData = {
+            labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5'],
+            datasets: [{
+                label: 'Usuarios Activos (en miles)',
+                data: [50, 250, 800, 2000, 5000],
+                fill: true,
+                borderColor: vibrantPalette[1],
+                backgroundColor: 'rgba(0, 224, 210, 0.1)',
+                tension: 0.4
+            }]
+        };
+        new Chart(document.getElementById('userGrowthChart'), {
+            type: 'line',
+            data: userGrowthData,
+            options: {
+                ...commonOptions,
+                 plugins: { ...commonOptions.plugins, legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: gridColor }, ticks: { color: textColor } },
+                    x: { grid: { display: false }, ticks: { color: textColor } }
+                }
+            }
+        });
+
+        const revenueStreamsData = {
+            labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5'],
+            datasets: [
+                {
+                    label: 'Suscripción Digital',
+                    data: [100, 80, 60, 50, 40],
+                    backgroundColor: vibrantPalette[0],
+                },
+                {
+                    label: 'Servicios Premium (Coaching)',
+                    data: [0, 20, 30, 35, 30],
+                    backgroundColor: vibrantPalette[2],
+                },
+                {
+                    label: 'Productos Físicos (Kits, Suplementos)',
+                    data: [0, 0, 10, 15, 30],
+                    backgroundColor: vibrantPalette[4],
+                }
+            ]
+        };
+        new Chart(document.getElementById('revenueStreamsChart'), {
+            type: 'bar',
+            data: revenueStreamsData,
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: { stacked: true, title: { display: true, text: '% de Ingresos' }, grid: { color: gridColor }, ticks: { color: textColor } },
+                    x: { stacked: true, grid: { display: false }, ticks: { color: textColor } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
